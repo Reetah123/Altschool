@@ -5,15 +5,14 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;;
   color: #333;
   line-height: 1.6;
-  padding: 32px;
 }
 
 p {
-  font-size: 1rem;      /* 1rem = 16px */
-  margin-bottom: 16px;
+  font-size: 1rem;     
+  margin-bottom: 12px;
 }
 
 .site-header {
@@ -79,8 +78,39 @@ p {
   margin-bottom: 10px;
 }
 
+h1,h2,h3,h4,h5 {
+     font-family: 'Space Grotesk', sans-serif;
+     color: #02402b;
+}
+
 .date {
   color: #888;
   font-size: 16px;
 }
 
+section{
+    padding: 20px 60px;
+}
+
+section.ingredients li {
+margin-left: 15px;
+}
+
+section.instructions li {
+margin-left: 18px;
+}
+
+section.cooktime p {
+    line-height: 1.2;
+}
+
+.about img {
+    width: 500px;
+    height: 670px ;
+    border-radius: 20px;
+    transition: filter0.3sease;
+}
+
+.about img:hover {
+    filter: grayscale(100%);
+}
