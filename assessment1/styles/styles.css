@@ -1,20 +1,53 @@
+/* RESET / GLOBAL STYLES */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BODY & BASE TEXT */
 body {
-  font-family: 'Inter', sans-serif;;
+  font-family: "Inter", sans-serif;
   color: #333;
+  background-color: #fff8f0;
   line-height: 1.6;
 }
 
+/* Paragraph styling */
 p {
-  font-size: 1rem;     
+  font-size: 1rem;
   margin-bottom: 12px;
 }
 
+/* HEADINGS (TYPOGRAPHY) */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Space Grotesk", sans-serif;
+  color: #02402b;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Individual heading sizes */
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* HEADER & NAVIGATION */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -24,6 +57,7 @@ p {
   background-color: #f7f7f7;
 }
 
+/* Logo styling */
 .logo {
   font-size: 28px;
   font-weight: bold;
@@ -31,21 +65,7 @@ p {
   letter-spacing: 3px;
 }
 
-.breadcrumb {
-  padding: 20px 60px;
-  font-size: 14px;
-  color: #555;
-}
-
-.breadcrumb a {
-  text-decoration: none;
-  color: #333;
-}
-
-.breadcrumb span {
-  color: #777;
-}
-
+/* Subtext under logo */
 .logo span {
   display: block;
   color: #e6a23c;
@@ -53,8 +73,14 @@ p {
   letter-spacing: 4px;
 }
 
+/* Navigation layout */
+.navbar {
+  display: flex;
+  gap: 30px;
+}
+
+/* Navigation links */
 .navbar a {
-  margin-left: 30px;
   text-decoration: none;
   color: #222;
   font-weight: bold;
@@ -63,54 +89,139 @@ p {
   letter-spacing: 1px;
 }
 
+/* Hover effect for navigation */
 .navbar a:hover {
   color: #c94c3c;
 }
 
-.hero {
-  text-align: center;
-  padding: 80px 20px;
+/* BREADCRUMB NAVIGATION */
+.breadcrumb {
+  font-size: 14px;
+  margin: 20px auto;
+  max-width: 1100px;
 }
 
+/* Breadcrumb links */
+.breadcrumb a {
+  text-decoration: none;
+  color: #ce2a05;
+}
+
+/* Current page text */
+.breadcrumb span {
+  color: #484444;
+}
+
+/* HERO SECTION */
 .hero h1 {
   font-size: 48px;
   font-weight: bold;
+  text-align: center;
+}
+
+/* Date styling - ID Selector*/
+#date {
+  color: #888;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* GENERAL SECTION SPACING */
+section {
+  padding: 20px 60px;
+}
+
+/* LIST STYLING */
+
+/* Ingredients list */
+section.ingredients li {
+  margin-left: 15px;
   margin-bottom: 10px;
 }
 
-h1,h2,h3,h4,h5 {
-     font-family: 'Space Grotesk', sans-serif;
-     color: #02402b;
-}
-
-.date {
-  color: #888;
-  font-size: 16px;
-}
-
-section{
-    padding: 20px 60px;
-}
-
-section.ingredients li {
-margin-left: 15px;
-}
-
+/* Instructions list */
 section.instructions li {
-margin-left: 18px;
+  margin-left: 18px;
+  margin-top: 10px;
 }
 
+/* Cooktime text adjustment */
 section.cooktime p {
-    line-height: 1.2;
+  line-height: 1.2;
 }
 
+/* ABOUT SECTION IMAGE */
 .about img {
-    width: 500px;
-    height: 670px ;
-    border-radius: 20px;
-    transition: filter0.3sease;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+  margin: 20px auto;
+
+  /* Smooth hover effect */
+  transition: filter 0.3s ease;
 }
 
+/* Image hover effect */
 .about img:hover {
-    filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+/* SCROLLING ANNOUNCEMENT BAR */
+.announcement-bar {
+  background-color: #c94c3c;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+/* Moving text inside bar */
+.scroll-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 15s linear infinite;
+}
+
+/* ANIMATION */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* CARD STYLE FOR SECTIONS */
+.about,
+.cooktime,
+.ingredients,
+.instructions,
+.tips,
+.facts {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* COOKTIME AS FLEXBOX CARDS */
+.cooktime {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cooktime h2 {
+  width: 100%;
+}
+.cooktime p {
+  background-color: #da8c32;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
 }
