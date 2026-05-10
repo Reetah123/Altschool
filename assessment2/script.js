@@ -11,7 +11,6 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const passwordError = document.getElementById("passwordError");
 
-
 const confirmPassword = document.getElementById("confirmPassword");
 const confirmPasswordError = document.getElementById("confirmPasswordError");
 
@@ -37,7 +36,7 @@ fullName.addEventListener("input", function () {
 
 function validateInputs() {
   let isValid = true;
-
+  
   // CLEAR PREVIOUS MESSAGES
   nameError.textContent = "";
   emailError.textContent = "";
@@ -46,12 +45,18 @@ function validateInputs() {
   ageError.textContent = "";
   successMessage.textContent = "";
   // GET INPUT VALUES
-  const fullNameValue = fullName.value;
-  const emailValue = email.value;
-  const passwordValue = password.value;
-  const confirmPasswordValue = confirmPassword.value;
+  const fullNameValue = fullName.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const confirmPasswordValue = confirmPassword.value.trim();
   const ageValue = age.value;
-  
+
+if (fullNameValue === "") {
+    nameError.textContent = "Full Name is required";
+    alert("Full name is required");
+    isValid = false;
+  }
+
 
   if (emailValue === "") {
     emailError.textContent = "Email Address is required";
@@ -66,7 +71,7 @@ function validateInputs() {
   let hasUpperCase = false;
   let hasNumber = false;
   let hasSpecialCharacter = false;
-  const specialCharacters = "!@#$%^&*";
+  const specialCharacters = "!@#$%^&*()-_=+[]{};:'\",.<>/?\\|";
 
   for (let i = 0; i < passwordValue.length; i++) {
     let character = passwordValue[i];
@@ -113,7 +118,7 @@ function validateInputs() {
     ageError.textContent = "Age is required";
     alert("Age is required");
     isValid = false;
-  } else if (ageValue < 18) {
+  } else if (Number(ageValue) < 18) {
     ageError.textContent = "You must be 18 or older";
     alert("You must be 18 or older");
     isValid = false;
@@ -122,5 +127,6 @@ function validateInputs() {
   if (isValid === true) {
     successMessage.textContent = "Registration Successful!";
     alert("Registration Successful!");
+    registrationForm.reset();
   }
 }
