@@ -50,6 +50,7 @@ function validateInputs() {
   const passwordValue = password.value;
   const confirmPasswordValue = confirmPassword.value;
   const ageValue = age.value;
+  
 
   if (emailValue === "") {
     emailError.textContent = "Email Address is required";
