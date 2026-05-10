@@ -11,6 +11,7 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const passwordError = document.getElementById("passwordError");
 
+
 const confirmPassword = document.getElementById("confirmPassword");
 const confirmPasswordError = document.getElementById("confirmPasswordError");
 
