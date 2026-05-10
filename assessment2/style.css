@@ -70,7 +70,17 @@ button:hover {
 }
 
 #successMessage {
+  display: none;
   text-align: center;
+  background-color: white;
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 40px 25px;
+  border-radius: 12px;
   color: green;
-  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#successMessage h2 {
+  margin-bottom: 10px;
 }

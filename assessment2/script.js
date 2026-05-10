@@ -19,114 +19,121 @@ const ageError = document.getElementById("ageError");
 
 const successMessage = document.getElementById("successMessage");
 
-registrationForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  validateInputs();
+registrationForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    validateInputs();
 });
 
 // REAL-TIME VALIDATION OR VISUAL FEEDBACK
 
-fullName.addEventListener("input", function () {
-  if (fullName.value === "") {
-    nameError.textContent = "Full Name is required";
-  } else {
-    nameError.textContent = "";
-  }
+fullName.addEventListener("input", function() {
+    if (fullName.value === "") {
+        nameError.textContent = "Full Name is required";
+    } else {
+        nameError.textContent = "";
+    }
 });
 
 function validateInputs() {
-  let isValid = true;
-  
-  // CLEAR PREVIOUS MESSAGES
-  nameError.textContent = "";
-  emailError.textContent = "";
-  passwordError.textContent = "";
-  confirmPasswordError.textContent = "";
-  ageError.textContent = "";
-  successMessage.textContent = "";
-  // GET INPUT VALUES
-  const fullNameValue = fullName.value.trim();
-  const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
-  const confirmPasswordValue = confirmPassword.value.trim();
-  const ageValue = age.value;
+    let isValid = true;
 
-if (fullNameValue === "") {
-    nameError.textContent = "Full Name is required";
-    alert("Full name is required");
-    isValid = false;
-  }
+    // CLEAR PREVIOUS MESSAGES
+    nameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    confirmPasswordError.textContent = "";
+    ageError.textContent = "";
+    successMessage.textContent = "";
+    // GET INPUT VALUES
+    const fullNameValue = fullName.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const confirmPasswordValue = confirmPassword.value.trim();
+    const ageValue = age.value;
 
-
-  if (emailValue === "") {
-    emailError.textContent = "Email Address is required";
-    alert("Email Address is required");
-    isValid = false;
-  } else if (!emailValue.includes("@") || !emailValue.includes(".")) {
-    emailError.textContent = "Enter a valid email address";
-    alert("Enter a valid email address");
-    isValid = false;
-  }
-  // PASSWORD VALIDATION
-  let hasUpperCase = false;
-  let hasNumber = false;
-  let hasSpecialCharacter = false;
-  const specialCharacters = "!@#$%^&*()-_=+[]{};:'\",.<>/?\\|";
-
-  for (let i = 0; i < passwordValue.length; i++) {
-    let character = passwordValue[i];
-
-    // Checks uppercase letter
-    if (character >= "A" && character <= "Z") {
-      hasUpperCase = true;
+    if (fullNameValue === "") {
+        nameError.textContent = "Full Name is required";
+        alert("Full name is required");
+        isValid = false;
     }
-    // Check number
-    if (character >= "0" && character <= "9") {
-      hasNumber = true;
-    }
-    // Check special character
-    if (specialCharacters.includes(character)) {
-      hasSpecialCharacter = true;
-    }
-  }
 
-  if (passwordValue.length < 8) {
-    passwordError.textContent = "Password must be at least 8 characters";
-    alert("Password must be at least 8 characters");
-    isValid = false;
-  } else if (hasUpperCase === false) {
-    passwordError.textContent = "Password must contain one uppercase letter";
-    alert("Password must contain one uppercase letter");
-    isValid = false;
-  } else if (hasNumber === false) {
-    passwordError.textContent = "Password must contain one number";
-    alert("Password must contain one number");
-    isValid = false;
-  } else if (hasSpecialCharacter === false) {
-    passwordError.textContent = "Password must contain one special character";
-    alert("Password must contain one special character");
-    isValid = false;
-  }
-  // CONFIRM PASSWORD VALIDATION
-  if (confirmPasswordValue !== passwordValue) {
-    confirmPasswordError.textContent = "Passwords do not match";
-    alert("Passwords do not match");
-    isValid = false;
-  }
-  // AGE VALIDATION
-  if (ageValue === "") {
-    ageError.textContent = "Age is required";
-    alert("Age is required");
-    isValid = false;
-  } else if (Number(ageValue) < 18) {
-    ageError.textContent = "You must be 18 or older";
-    alert("You must be 18 or older");
-    isValid = false;
-  }
-  // SUCCESS MESSAGE
-  if (isValid === true) {
-    successMessage.textContent = "Registration Successful!";
-    alert("Registration Successful!");
-    registrationForm.reset();
-  }
+
+    if (emailValue === "") {
+        emailError.textContent = "Email Address is required";
+        alert("Email Address is required");
+        isValid = false;
+    } else if (!emailValue.includes("@") || !emailValue.includes(".")) {
+        emailError.textContent = "Enter a valid email address";
+        alert("Enter a valid email address");
+        isValid = false;
+    }
+    // PASSWORD VALIDATION
+    let hasUpperCase = false;
+    let hasNumber = false;
+    let hasSpecialCharacter = false;
+    const specialCharacters = "!@#$%^&*()-_=+[]{};:'\",.<>/?\\|";
+
+    for (let i = 0; i < passwordValue.length; i++) {
+        let character = passwordValue[i];
+
+        // Checks uppercase letter
+        if (character >= "A" && character <= "Z") {
+            hasUpperCase = true;
+        }
+        // Check number
+        if (character >= "0" && character <= "9") {
+            hasNumber = true;
+        }
+        // Check special character
+        if (specialCharacters.includes(character)) {
+            hasSpecialCharacter = true;
+        }
+    }
+
+    if (passwordValue.length < 8) {
+        passwordError.textContent = "Password must be at least 8 characters";
+        alert("Password must be at least 8 characters");
+        isValid = false;
+    } else if (hasUpperCase === false) {
+        passwordError.textContent = "Password must contain one uppercase letter";
+        alert("Password must contain one uppercase letter");
+        isValid = false;
+    } else if (hasNumber === false) {
+        passwordError.textContent = "Password must contain one number";
+        alert("Password must contain one number");
+        isValid = false;
+    } else if (hasSpecialCharacter === false) {
+        passwordError.textContent = "Password must contain one special character";
+        alert("Password must contain one special character");
+        isValid = false;
+    }
+    // CONFIRM PASSWORD VALIDATION
+    if (confirmPasswordValue !== passwordValue) {
+        confirmPasswordError.textContent = "Passwords do not match";
+        alert("Passwords do not match");
+        isValid = false;
+    }
+    // AGE VALIDATION
+    if (ageValue === "") {
+        ageError.textContent = "Age is required";
+        alert("Age is required");
+        isValid = false;
+    } else if (Number(ageValue) < 18) {
+        ageError.textContent = "You must be 18 or older";
+        alert("You must be 18 or older");
+        isValid = false;
+    }
+    // SUCCESS MESSAGE
+    if (isValid === true) {
+        alert("Registration Successful!");
+
+        registrationForm.style.display = "none";
+
+        successMessage.style.display = "block";
+
+        successMessage.innerHTML = `
+    <h2>Registration Successful!</h2>
+    <p>Your account has been created successfully.</p>
+  `;
+    }
 }
