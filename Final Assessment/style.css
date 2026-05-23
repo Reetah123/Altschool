@@ -1,0 +1,232 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 24px 28px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/*Main layout*/
+main {
+  flex: 1;
+  max-width: 700px;
+  width: 100%;
+  margin: 32px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/*  Cards  */
+.card {
+  background: #fff;
+  border: 1px solid #dde1e8;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #1a1a2e;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Form */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #4361ee;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+button[type="submit"] {
+  background: #4361ee;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: #2f4ad0;
+}
+
+/* Error message */
+.error-msg {
+  color: #d9534f;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  min-height: 16px;
+}
+
+/*  Empty note */
+.empty-note {
+  color: #aaa;
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+/* Table */
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  display: none; /* shown by JS */
+}
+
+.student-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  padding: 8px 12px;
+  border-bottom: 2px solid #eee;
+}
+
+.student-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.93rem;
+  vertical-align: middle;
+}
+
+.student-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.student-table tbody tr:hover {
+  background: #f7f8ff;
+}
+
+
+
+/* above-average highlight (bonus) */
+.student-table tbody tr.above-average {
+  background: #f0fdf4;
+}
+
+.student-table tbody tr.above-average td:nth-child(3) {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+/* delete button */
+.del-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #888;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.del-btn:hover {
+  border-color: #d9534f;
+  color: #d9534f;
+}
+
+/* Average card */
+.average-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avg-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #555;
+}
+
+.avg-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4361ee;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  header {
+    padding: 18px 16px;
+  }
+  main {
+    padding: 0 12px;
+    margin: 20px auto;
+  }
+  .card {
+    padding: 18px 14px;
+  }
+  .average-card {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+  button[type="submit"] {
+    width: 100%;
+  }
+}
