@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A beginner-friendly student grade tracker built with HTML, CSS, and JavaScript."
-    />
-    <title>Weather Forecast App</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-
-
-  <body>
-  <header>
-    <h1>Weather App</h1>
-
-    <form id="searchForm">
-      <input type="text" id="cityInput" placeholder="Enter city name" />
-      <button type="submit">Search</button>
-    </form>
-  </header>
-
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
   <main>
-    <p id="loadingMessage"></p>
-    <p id="errorMessage"></p>
 
-    <section>
-      <h2>Current Weather</h2>
-      <p id="weatherIcon"></p>
-      <p id="cityName"></p>
-      <p id="temperature"></p>
-      <p id="description"></p>
+    <header>
+      <span aria-hidden="true">⎕</span>
+      <h1>Weather App</h1>
+    </header>
+
+    <div class="search-row" role="search">
+      <input type="text" id="cityInput" placeholder="Enter city name" autocomplete="off" aria-label="City name" />
+      <button id="searchButton" type="button">Search</button>
+    </div>
+
+    <p id="loadingMessage" role="status" aria-live="polite"></p>
+    <p id="errorMessage"   role="alert"  aria-live="assertive"></p>
+
+    <section class="hero" id="hero" aria-label="Current weather">
+      <figure id="weatherIcon" aria-hidden="true"></figure>
+      <h2 id="cityName"></h2>
+      <p class="temperature" id="temperature"></p>
+      <p class="condition"   id="description"></p>
     </section>
 
-    <section>
-      <h2>Weather Stats</h2>
-      <p id="humidity"></p>
-      <p id="windSpeed"></p>
-      <p id="uvIndex">UV Index: Not available</p>
+    <section class="stats" id="statsRow" aria-label="Weather statistics">
+      <dl>
+        <dt>Humidity</dt>
+        <dd id="humidity">—</dd>
+      </dl>
+      <dl>
+        <dt>Wind</dt>
+        <dd id="windSpeed">—</dd>
+      </dl>
+      <dl>
+        <dt>UV Index</dt>
+        <dd id="uvIndex">—</dd>
+      </dl>
     </section>
 
-    <section>
-      <h2>5-Day Forecast</h2>
-      <div id="forecastContainer"></div>
+    <section class="forecast" id="forecastSection" aria-label="5-day forecast">
+      <h3>5-Day Forecast</h3>
+      <ul id="forecastContainer"></ul>
     </section>
+
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
