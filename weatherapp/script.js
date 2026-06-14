@@ -137,7 +137,7 @@ function getWeatherDescription(code) {
   } else if (code === 45 || code === 48) {
     return { description: "Foggy", icon: "🌫" };
   } else if (code === 51 || code === 53 || code === 55) {
-    return { description: "Drizzle", icon: "" 🌦};
+    return { description: "Drizzle", icon: "🌦" };
   } else if (code === 61 || code === 63 || code === 65) {
     return { description: "Rain", icon: "🌧" };
   } else if (code === 71 || code === 73 || code === 75) {
